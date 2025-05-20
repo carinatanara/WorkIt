@@ -12,5 +12,8 @@ class DetailPage : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_detail_page)
 
+
+        // Halo Semua
+
     }
 }
