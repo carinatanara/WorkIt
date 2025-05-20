@@ -5,6 +5,4 @@ data class JobItem(
     var company_name: String,
     var logo: Int,
     var category: String
-
-//    HelLo
 )
