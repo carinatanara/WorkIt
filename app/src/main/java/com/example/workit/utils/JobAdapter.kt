@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.workit.R
 import com.example.workit.model.JobItem
 
-class JobAdapter(private var jobList: List<JobItem> = emptyList()) : RecyclerView.Adapter<JobAdapter.ViewHolder>() {
+class JobAdapter(private val jobList: MutableList<JobItem> = mutableListOf()) : RecyclerView.Adapter<JobAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageView: ImageView = itemView.findViewById(R.id.company_logo)
@@ -31,9 +31,10 @@ class JobAdapter(private var jobList: List<JobItem> = emptyList()) : RecyclerVie
 
     override fun getItemCount(): Int = jobList.size
 
-    // Metode untuk memperbarui data
-    fun updateData(newJobList: List<JobItem>) {
-        jobList = newJobList
+    fun updateData(newList: List<JobItem>) {
+        val oldList = ArrayList(jobList)
+        jobList.clear()
+        jobList.addAll(newList)
         notifyDataSetChanged()
     }
 }

@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.workit.R
 import com.example.workit.model.CompanyItem
 
-class CompanyAdapter(private var companyList: List<CompanyItem> = emptyList()) : RecyclerView.Adapter<CompanyAdapter.ViewHolder>() {
+class CompanyAdapter(private val companyList: MutableList<CompanyItem> = mutableListOf()) : RecyclerView.Adapter<CompanyAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageView: ImageView = itemView.findViewById(R.id.company_logo)
@@ -18,7 +18,7 @@ class CompanyAdapter(private var companyList: List<CompanyItem> = emptyList()) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.list_job, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.list_company, parent, false)
         return ViewHolder(view)
     }
 
@@ -31,9 +31,9 @@ class CompanyAdapter(private var companyList: List<CompanyItem> = emptyList()) :
 
     override fun getItemCount(): Int = companyList.size
 
-    // Metode untuk memperbarui data
     fun updateData(newCompanyList: List<CompanyItem>) {
-        companyList = newCompanyList
+        companyList.clear()
+        companyList.addAll(newCompanyList)
         notifyDataSetChanged()
     }
 }
