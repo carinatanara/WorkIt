@@ -64,6 +64,9 @@ android {
 }
 ```
 
+## WIP Backend
+Check out the experimental [backend](https://github.com/wintamaDj/WorkIt-backend)
+
 ## Contributing
 
 Feel free to contribute to this project by submitting issues and/or pull requests.
